@@ -45,14 +45,6 @@ public class BoardController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection(url, "hr", "hr");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
 		ObservableList<Board> boardList = getBoardList();
 
 		TableColumn<Board, String> colBoardNo = new TableColumn<Board, String>("boardNo");
@@ -112,6 +104,14 @@ public class BoardController implements Initializable {
 	}
 
 	public ObservableList<Board> getBoardList() {
+
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection(url, "hr", "hr");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		String sql = "select * from board order by 1";
 		ObservableList<Board> list = FXCollections.observableArrayList();

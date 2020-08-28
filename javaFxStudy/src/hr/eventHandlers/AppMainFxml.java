@@ -10,12 +10,11 @@ public class AppMainFxml extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		String controlName = "BoardControl.fxml";
-		Parent root = FXMLLoader.load(getClass().getResource(controlName));
+		Parent root = FXMLLoader.load(getClass().getResource("BoardControl.fxml"));
 
 		Scene scene = new Scene(root);
 
-		primaryStage.setTitle(controlName);
+		primaryStage.setTitle("BoardControl.fxml");
 		primaryStage.setScene(scene);
 		primaryStage.show();
 
