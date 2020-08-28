@@ -1,0 +1,8 @@
+amd 3200G	115000	2500
+biostar a320mh	55000	2500
+Geil ddr4 4*2	46000	2500
+segate 120ssd(250G)	56000	2500
+zalman n5 mf	42000	2500
+coolmax elite 500w +12v single rail 84+	38000	2500
+	352000	15000
+

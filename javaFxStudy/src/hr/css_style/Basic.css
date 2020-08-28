@@ -1,0 +1,42 @@
+Label {
+	-fx-padding: 10;
+	-fx-background-color: yellow;
+}
+
+#lblId {
+	-fx-background-color: black;
+	-fx-text-fill: yellow;
+}
+
+.lblClass {
+	-fx-background-color: blue;
+	-fx-text-fill: white;
+}
+
+TextField {
+	-fx-background-color: yellow;
+	-fx-text-fill: green;
+	-fx-padding: 10;
+	-fx-border-color: red;
+	-fx-border-radius: 20;
+}
+
+TextField:focused {
+	-fx-background-color: blue;
+	-fx-text-fill: yellow;
+}
+
+Button {
+	-fx-border-width: 20;
+	-fx-border-radius: 40;
+}
+
+Button:hover {
+	-fx-border-color: skyblue;
+	-fx-background-color: yellow;
+}
+
+Button:pressed {
+	-fx-border-color: cyan;
+	-fx-background-color: green;
+}

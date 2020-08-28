@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="eventHandlers.PhoneController">
+	<children>
+		<Label layoutX="13.0" layoutY="25.0" text="listView" />
+		<ListView fx:id="listView" layoutX="11.0" layoutY="62.0" prefHeight="140.0" prefWidth="104.0" />
+		<Label layoutX="140.0" layoutY="25.0" text="tableView" />
+		<TableView fx:id="tableView" layoutX="137.0" layoutY="62.0" prefHeight="140.0" prefWidth="226.0">
+			<!-- <columns>
+				<TableColumn fx:id="col1" prefWidth="100.0" text="smartPhone" />
+				<TableColumn fx:id="col2" prefWidth="100.0" text="image" />
+			</columns> -->
+		</TableView>
+		<Label layoutX="400.0" layoutY="25.0" text="imageView" />
+		<ImageView fx:id="imageView" fitHeight="140.0" fitWidth="100.0" layoutX="382.0" layoutY="62.0">
+			<image>
+				<Image url="@../images/phone01.png" />
+			</image>
+		</ImageView>
+		<Button layoutX="157.0" layoutY="224.0" onAction="#btnOkAction" text="OK" />
+		<Button fx:id="btnCancelAction" layoutX="270.0" layoutY="224.0" text="Cancel" />
+	</children>
+</AnchorPane>

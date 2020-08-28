@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ButtonController">
+	<padding>
+		<Insets topRightBottomLeft="10" />
+	</padding>
+
+	<center>
+		<HBox >
+			<children>
+
+				<VBox fx:id="vbox">
+					<CheckBox fx:id="chk1" text="glasses" onAction="#handleChkAction" />
+					<CheckBox fx:id="chk2" text="cap" />
+				</VBox>
+				<ImageView fx:id="checkImageView" fitWidth="100" preserveRatio="true" >
+					<Image url="@../images/geek.gif" />
+				</ImageView>
+			
+				<Separator orientation="VERTICAL" prefHeight="100" />
+				
+				<VBox prefHeight="100" prefWidth="150" spacing="20" alignment="CENTER_LEFT">
+					<fx:define><ToggleGroup fx:id="group" /></fx:define>
+					<children>
+						<RadioButton fx:id="rad1" text="BubbleChart" userData="BubbleChart" toggleGroup="$group" />
+						<RadioButton fx:id="rad2" text="BarChart" userData="BarChart" toggleGroup="$group" selected="true" />
+						<RadioButton fx:id="rad3" text="AreaChart" userData="AreaChart" toggleGroup="$group" />
+					</children>
+				</VBox> 
+				<ImageView fx:id="radioImageView" fitWidth="100" preserveRatio="true">
+					<image><Image url="@../images/BarChart.png" /></image>
+				</ImageView>
+			
+			</children>
+		</HBox>
+	</center>
+
+	<bottom>
+		<Button fx:id="btnExit" >
+			<graphic>
+				<ImageView><Image  url="@../images/exit.png"></Image></ImageView>
+			</graphic>
+		</Button>
+	</bottom>
+</BorderPane>
+
