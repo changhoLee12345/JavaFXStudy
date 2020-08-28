@@ -10,6 +10,13 @@ public class Board {
 	private SimpleStringProperty exitDate;
 	private SimpleStringProperty content;
 
+	public Board(String boardNo, String title, String content) {
+		super();
+		this.boardNo = new SimpleStringProperty(boardNo);
+		this.title = new SimpleStringProperty(title);
+		this.content = new SimpleStringProperty(content);
+	}
+
 	public Board(String boardNo, String title, String publicity, String exitDate, String content) {
 		this.boardNo = new SimpleStringProperty(boardNo);
 		this.title = new SimpleStringProperty(title);

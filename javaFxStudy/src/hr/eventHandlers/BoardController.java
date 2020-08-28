@@ -23,6 +23,7 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 
 public class BoardController implements Initializable {
@@ -45,8 +46,6 @@ public class BoardController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		ObservableList<Board> boardList = getBoardList();
-
 		TableColumn<Board, String> colBoardNo = new TableColumn<Board, String>("boardNo");
 		colBoardNo.setCellValueFactory(new Callback<CellDataFeatures<Board, String>, ObservableValue<String>>() {
 
@@ -58,6 +57,7 @@ public class BoardController implements Initializable {
 		});
 //		colBoardNo.setCellValueFactory(new PropertyValueFactory<Board, Integer>("boardNo"));
 		colBoardNo.setStyle("-fx-alignment: CENTER; ");
+		boardView.getColumns().add(colBoardNo);
 
 		TableColumn<Board, String> colTitle = new TableColumn<Board, String>("title");
 		colTitle.setCellValueFactory(new Callback<CellDataFeatures<Board, String>, ObservableValue<String>>() {
@@ -67,10 +67,21 @@ public class BoardController implements Initializable {
 			}
 		});
 		colTitle.setStyle("-fx-alignment: CENTER;");
-
-		boardView.getColumns().add(colBoardNo);
 		boardView.getColumns().add(colTitle);
 
+		TableColumn<Board, String> colContent = new TableColumn<Board, String>("content");
+//		colContent.setCellValueFactory(new Callback<CellDataFeatures<Board, String>, ObservableValue<String>>() {
+//			@Override
+//			public ObservableValue<String> call(CellDataFeatures<Board, String> param) {
+//				return param.getValue().contentProperty();
+//			}
+//		});
+		colContent.setCellValueFactory(new PropertyValueFactory<Board, String>("content"));
+		boardView.getColumns().add(colContent);
+
+		ObservableList<Board> boardList = null; // getBoardList();
+		boardList = FXCollections.observableArrayList(new Board("b1", "title1", "content1"),
+				new Board("b1", "title1", "content1"));
 		boardView.setItems(boardList);
 
 		boardView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Board>() {
