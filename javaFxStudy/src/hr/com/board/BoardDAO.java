@@ -1,10 +1,10 @@
-package hr.common.board;
+package hr.com.board;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import hr.common.DAO;
+import hr.com.DAO;
 
 public class BoardDAO {
 	private static final BoardDAO singleton = new BoardDAO();

@@ -1,4 +1,4 @@
-package hr.common;
+package hr.com;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ButtonController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.control.ButtonController">
 	<padding>
 		<Insets topRightBottomLeft="10" />
 	</padding>
@@ -36,7 +36,7 @@
 					</children>
 				</VBox> 
 				<ImageView fx:id="radioImageView" fitWidth="100" preserveRatio="true">
-					<image><Image url="@../images/BarChart.png" /></image>
+					<image><Image url="@../../images/BarChart.png" /></image>
 				</ImageView>
 			
 			</children>
@@ -46,7 +46,7 @@
 	<bottom>
 		<Button fx:id="btnExit" >
 			<graphic>
-				<ImageView><Image  url="@../images/exit.png"></Image></ImageView>
+				<ImageView><Image  url="@../../images/exit.png"></Image></ImageView>
 			</graphic>
 		</Button>
 	</bottom>

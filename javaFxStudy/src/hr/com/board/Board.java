@@ -1,4 +1,4 @@
-package hr.common.board;
+package hr.com.board;
 
 public class Board {
 	String title;

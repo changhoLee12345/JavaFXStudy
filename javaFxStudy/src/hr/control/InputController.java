@@ -5,8 +5,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-import hr.common.board.Board;
-import hr.common.board.BoardDAO;
+import hr.com.board.Board;
+import hr.com.board.BoardDAO;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;

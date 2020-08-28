@@ -3,7 +3,7 @@ package hr.control;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import hr.common.phone.Phone;
+import hr.com.phone.Phone;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;

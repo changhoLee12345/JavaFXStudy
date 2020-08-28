@@ -1,4 +1,4 @@
-package hr.how_to;
+package hr.java2s.how_to;
 
 import javafx.application.Application;
 import javafx.scene.Group;
