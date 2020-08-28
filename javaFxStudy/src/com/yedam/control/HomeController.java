@@ -14,9 +14,9 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-import com.yedam.common.ConnectionUtil;
 import com.yedam.model.User;
 
+import common.ConnectionUtil;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

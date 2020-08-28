@@ -1,7 +1,7 @@
 select * from tab;
 
 
---µµ¼­Á¤º¸
+--ë„ì„œì •ë³´.
 create table book (
  book_title varchar2(100),
  author varchar2(100),
