@@ -1,13 +1,16 @@
 select * from tab;
 
 
---ë„ì„œì •ë³´.
+--µµ¼­Á¤º¸.
+drop table book purge;
 create table book (
- book_title varchar2(100),
- author varchar2(100),
- press varchar2(100),
- press_date varchar2(10),
- creation_date date
+ book_title varchar2(100), --Ã¥Á¦¸ñ
+ author varchar2(100), --ÀúÀÚ
+ press varchar2(100), --ÃâÆÇ»ç
+ press_date varchar2(10), --ÃâÆÇÀÏÀÚ
+ price number, --°¡°İ
+ isbn varchar2(12), --P20200504001
+ creation_date date --»ı¼ºÀÏÀÚ.
 );
 
 
