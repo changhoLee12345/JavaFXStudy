@@ -79,8 +79,8 @@ public class HomeController implements Initializable {
 		// TODO
 		txtGender.getItems().addAll("Male", "Female", "Other");
 		txtGender.getSelectionModel().select("Male");
-//		fetColumnList();
-//		fetRowList();
+		fetColumnList();
+		fetRowList();
 		clearFields();
 
 		tblData.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<User>() {

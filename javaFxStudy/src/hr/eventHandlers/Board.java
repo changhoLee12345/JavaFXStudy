@@ -94,7 +94,7 @@ public class Board {
 	}
 
 	public SimpleStringProperty contentProperty() {
-		return this.title;
+		return this.content;
 	}
 
 }

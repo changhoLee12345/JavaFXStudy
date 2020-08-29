@@ -5,8 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="550.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="550.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="books.library.BookController">
    <children>
       <Label layoutX="50.0" layoutY="38.0" text="도서목록" />
       <TableView layoutX="56.0" layoutY="75.0" prefHeight="357.0" prefWidth="291.0">
@@ -15,7 +15,8 @@
           <TableColumn prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
-      <Button fx:id="btnPrev"layoutX="121.0" layoutY="463.0" mnemonicParsing="false" text="prev" />
-      <Button fx:id="btnNext" layoutX="254.0" layoutY="463.0" mnemonicParsing="false" text="next" />
+      <Button fx:id="btnPrev" layoutX="121.0" layoutY="463.0" mnemonicParsing="false" text="prev" />
+      <Button fx:id="btnNext" layoutX="181.0" layoutY="463.0" mnemonicParsing="false" text="next" />
+      <Button fx:id="btnAdd" layoutX="242.0" layoutY="463.0" mnemonicParsing="false" text="add" />
    </children>
 </AnchorPane>

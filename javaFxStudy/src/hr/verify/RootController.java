@@ -52,19 +52,19 @@ public class RootController implements Initializable {
 		list = FXCollections.observableArrayList();
 
 		TableColumn<Student, ?> tc = tableView.getColumns().get(0);
-		tc.setCellValueFactory(new PropertyValueFactory("name"));
+		tc.setCellValueFactory(new PropertyValueFactory<>("name"));
 		tc.setStyle("-fx-alignment:CENTER;");
 
 		tc = tableView.getColumns().get(1);
-		tc.setCellValueFactory(new PropertyValueFactory("korean"));
+		tc.setCellValueFactory(new PropertyValueFactory<>("korean"));
 		tc.setStyle("-fx-alignment:CENTER;");
 
 		tc = tableView.getColumns().get(2);
-		tc.setCellValueFactory(new PropertyValueFactory("math"));
+		tc.setCellValueFactory(new PropertyValueFactory<>("math"));
 		tc.setStyle("-fx-alignment:CENTER;");
 
 		tc = tableView.getColumns().get(3);
-		tc.setCellValueFactory(new PropertyValueFactory("english"));
+		tc.setCellValueFactory(new PropertyValueFactory<>("english"));
 		tc.setStyle("-fx-alignment:CENTER;");
 
 		tableView.setItems(list);
@@ -81,6 +81,7 @@ public class RootController implements Initializable {
 					TextField tfEnglish = new TextField();
 
 					ap.getChildren().addAll(tfName, tfKorean, tfMath, tfEnglish);
+
 				} else {
 					return;
 				}
@@ -97,7 +98,7 @@ public class RootController implements Initializable {
 			dialog.initOwner(primaryStage);
 			dialog.setTitle("Add");
 
-			Parent parent = FXMLLoader.load(getClass().getResource("Form.fxml"));
+			Parent parent = FXMLLoader.load(getClass().getResource("AddForm.fxml"));
 
 			Button btnFormAdd = (Button) parent.lookup("#btnFormAdd");
 			btnFormAdd.setOnAction(evnt -> {

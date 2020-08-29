@@ -46,50 +46,66 @@ public class BoardController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		TableColumn<Board, String> colBoardNo = new TableColumn<Board, String>("boardNo");
-		colBoardNo.setCellValueFactory(new Callback<CellDataFeatures<Board, String>, ObservableValue<String>>() {
+//		TableColumn<Board, ?> colExists = boardView.getColumns().get(0);
+//		colExists.setCellValueFactory(new PropertyValueFactory<>("boardNo"));
+//		colExists.setStyle("-fx-alignment: CENTER;");
+//
+//		colExists = boardView.getColumns().get(1);
+//		colExists.setCellValueFactory(new PropertyValueFactory<>("title"));
+//		colExists.setStyle("-fx-alignment: CENTER;");
 
-			@Override
-			public ObservableValue<String> call(CellDataFeatures<Board, String> param) {
-				return param.getValue().boardNoProperty();
-			}
-
-		});
-//		colBoardNo.setCellValueFactory(new PropertyValueFactory<Board, Integer>("boardNo"));
-		colBoardNo.setStyle("-fx-alignment: CENTER; ");
-		boardView.getColumns().add(colBoardNo);
-
-		TableColumn<Board, String> colTitle = new TableColumn<Board, String>("title");
-		colTitle.setCellValueFactory(new Callback<CellDataFeatures<Board, String>, ObservableValue<String>>() {
-			@Override
-			public ObservableValue<String> call(CellDataFeatures<Board, String> param) {
-				return param.getValue().titleProperty();
-			}
-		});
-		colTitle.setStyle("-fx-alignment: CENTER;");
-		boardView.getColumns().add(colTitle);
-
-		TableColumn<Board, String> colContent = new TableColumn<Board, String>("content");
-//		colContent.setCellValueFactory(new Callback<CellDataFeatures<Board, String>, ObservableValue<String>>() {
+		TableColumn<Board, String> colBoardNo = new TableColumn<Board, String>("BoardNo");
+//		colBoardNo.setCellValueFactory(new Callback<CellDataFeatures<Board, String>, ObservableValue<String>>() {
 //			@Override
 //			public ObservableValue<String> call(CellDataFeatures<Board, String> param) {
-//				return param.getValue().contentProperty();
+//				return param.getValue().boardNoProperty();
 //			}
 //		});
-		colContent.setCellValueFactory(new PropertyValueFactory<Board, String>("content"));
+		colBoardNo.setCellValueFactory(new PropertyValueFactory<Board, String>("boardNo"));
+		colBoardNo.setPrefWidth(60);
+		boardView.getColumns().add(colBoardNo);
+
+		TableColumn<Board, String> colTitle = new TableColumn<Board, String>("Title");
+//		colTitle.setCellValueFactory(new Callback<CellDataFeatures<Board, String>, ObservableValue<String>>() {
+//			@Override
+//			public ObservableValue<String> call(CellDataFeatures<Board, String> param) {
+//				return param.getValue().titleProperty();
+//			}
+//		});
+		colTitle.setCellValueFactory(new PropertyValueFactory<Board, String>("title"));
+		colTitle.setPrefWidth(60);
+		boardView.getColumns().add(colTitle);
+
+		TableColumn<Board, String> colContent = new TableColumn<Board, String>("Content");
+		colContent.setCellValueFactory(new Callback<CellDataFeatures<Board, String>, ObservableValue<String>>() {
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<Board, String> param) {
+				System.out.println(param.getValue().contentProperty());
+				return param.getValue().contentProperty();
+			}
+		});
+//		colContent.setCellValueFactory(new PropertyValueFactory<Board, String>("content"));
+		colContent.setPrefWidth(70);
 		boardView.getColumns().add(colContent);
 
-		ObservableList<Board> boardList = null; // getBoardList();
+		colBoardNo.setStyle("-fx-alignment: CENTER; ");
+		colTitle.setStyle("-fx-alignment: CENTER;");
+		colContent.setStyle("-fx-alignment: CENTER;");
+
+		ObservableList<Board> boardList = null;
+//		boardList = getBoardList();
 		boardList = FXCollections.observableArrayList(new Board("b1", "title1", "content1"),
-				new Board("b1", "title1", "content1"));
+				new Board("b2", "title2", "content2"), new Board("b3", "title3", "content3"),
+				new Board("b4", "title4", "content4"), new Board("b5", "title5", "content5"));
+
 		boardView.setItems(boardList);
 
 		boardView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Board>() {
 			@Override
 			public void changed(ObservableValue<? extends Board> observable, Board oldValue, Board newValue) {
 				txtTitle.setText(newValue.getTitle());
-				comboPublic.setValue(newValue.getPublicity());
-				txtExitDate.setText(newValue.getExitDate());
+//				comboPublic.setValue(newValue.getPublicity());
+//				txtExitDate.setText(newValue.getExitDate());
 				txtContent.setText(newValue.getContent());
 			}
 		});
