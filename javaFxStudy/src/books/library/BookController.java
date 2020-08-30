@@ -12,7 +12,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class BookController implements Initializable {
 
@@ -32,8 +34,11 @@ public class BookController implements Initializable {
 	}
 
 	public void handleButtonAction() {
-		Stage stage = (Stage) btnAdd.getScene().getWindow();
-		stage.close();
+		Stage stage = new Stage(StageStyle.DECORATED);
+		stage.initModality(Modality.WINDOW_MODAL);
+
+		Stage primaryStage = (Stage) btnAdd.getScene().getWindow();
+		stage.initOwner(primaryStage);
 
 		try {
 			Parent container = FXMLLoader.load(getClass().getResource("view/BookAdd.fxml"));
