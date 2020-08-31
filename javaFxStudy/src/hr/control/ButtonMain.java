@@ -11,7 +11,7 @@ public class ButtonMain extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/ButtonControl.fxml"));
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fxml/ButtonControl.fxml"));
 		Parent root = loader.load();
 
 //		InputController controller = loader.getController();
