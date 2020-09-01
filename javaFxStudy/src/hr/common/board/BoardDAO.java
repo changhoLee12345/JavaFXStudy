@@ -1,4 +1,4 @@
-package hr.com.board;
+package hr.common.board;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

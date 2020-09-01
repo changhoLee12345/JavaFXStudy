@@ -1,4 +1,4 @@
-package hr.com.phone;
+package hr.common.phone;
 
 import javafx.beans.property.SimpleStringProperty;
 
