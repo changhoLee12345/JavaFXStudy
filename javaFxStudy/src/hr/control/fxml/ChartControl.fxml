@@ -7,9 +7,10 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 
-<HBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.control.ChartController" prefHeight="250" prefWidth="850" >
+<HBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.control.ChartController" prefHeight="250" prefWidth="850">
 	<children>
 		<PieChart fx:id="pieChart"></PieChart>
+
 		<BarChart fx:id="barChart">
 			<xAxis>
 				<CategoryAxis side="BOTTOM" />
@@ -18,12 +19,13 @@
 				<NumberAxis side="LEFT" />
 			</yAxis>
 		</BarChart>
+
 		<AreaChart fx:id="areaChart">
 			<xAxis>
 				<CategoryAxis side="BOTTOM" />
 			</xAxis>
 			<yAxis>
-				<NumberAxis side="LEFT" />
+				<NumberAxis side="RIGHT" />
 			</yAxis>
 		</AreaChart>
 	</children>

@@ -8,11 +8,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.AreaChart;
-import javafx.scene.chart.Axis;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.chart.XYChart.Series;
 
 public class ChartController implements Initializable {
 
@@ -45,11 +43,12 @@ public class ChartController implements Initializable {
 		XYChart.Series<String, Integer> series3 = new XYChart.Series<>();
 		series3.setName("Celsius");
 		series3.setData(FXCollections.observableArrayList(getSeries3()));
-		areaChart.getData().add(series3);
 
 		XYChart.Series<String, Integer> series4 = new XYChart.Series<>();
 		series4.setName("Covid19");
 		series4.setData(FXCollections.observableArrayList(getSeries4()));
+
+		areaChart.getData().add(series3);
 		areaChart.getData().add(series4);
 
 	}
