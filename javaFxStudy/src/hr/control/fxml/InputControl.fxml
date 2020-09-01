@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.FXCollections?>
 
-<AnchorPane prefHeight="380.0" prefWidth="485.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="control.InputController" >
+<AnchorPane prefHeight="380.0" prefWidth="485.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="hr.control.InputController" >
    <children>
       <Label layoutX="22.0" layoutY="36.0" text="Title" />
       <Label layoutX="22.0" layoutY="69.0" text="Password" />

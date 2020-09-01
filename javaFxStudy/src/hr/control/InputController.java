@@ -70,7 +70,7 @@ public class InputController implements Initializable {
 		String content = txtContent.getText();
 
 		if (title == null || title.equals("")) {
-			showCustomDialog("타이틀을 입력하세요.");
+			showPopup("타이틀을 입력하세요.");
 
 		} else if (password == null || password.equals("")) {
 			showCustomDialog("비번을 입력하세요.");
@@ -145,7 +145,7 @@ public class InputController implements Initializable {
 		ap.setPrefSize(400, 150);
 
 		ImageView imageView = new ImageView();
-		imageView.setImage(new Image("/images/dialog-info.png"));
+		imageView.setImage(new Image(getClass().getResource("../images/dialog-info.png").toString()));
 		imageView.setFitHeight(50);
 		imageView.setFitWidth(50);
 		imageView.setLayoutX(15);
