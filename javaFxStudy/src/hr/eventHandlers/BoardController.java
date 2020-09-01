@@ -76,12 +76,12 @@ public class BoardController implements Initializable {
 		colTitle.setPrefWidth(60);
 		boardView.getColumns().add(colTitle);
 
-		TableColumn<Board, String> colContent = new TableColumn<Board, String>("Content");
+		TableColumn<Board, String> colContent = new TableColumn<Board, String>("Publicity");
 		colContent.setCellValueFactory(new Callback<CellDataFeatures<Board, String>, ObservableValue<String>>() {
 			@Override
 			public ObservableValue<String> call(CellDataFeatures<Board, String> param) {
-				System.out.println(param.getValue().contentProperty());
-				return param.getValue().contentProperty();
+				System.out.println(param.getValue().publicityProperty());
+				return param.getValue().publicityProperty();
 			}
 		});
 //		colContent.setCellValueFactory(new PropertyValueFactory<Board, String>("content"));
@@ -93,10 +93,10 @@ public class BoardController implements Initializable {
 		colContent.setStyle("-fx-alignment: CENTER;");
 
 		ObservableList<Board> boardList = null;
-//		boardList = getBoardList();
-		boardList = FXCollections.observableArrayList(new Board("b1", "title1", "content1"),
-				new Board("b2", "title2", "content2"), new Board("b3", "title3", "content3"),
-				new Board("b4", "title4", "content4"), new Board("b5", "title5", "content5"));
+		boardList = getBoardList();
+//		boardList = FXCollections.observableArrayList(new Board("b1", "title1", "content1"),
+//				new Board("b2", "title2", "content2"), new Board("b3", "title3", "content3"),
+//				new Board("b4", "title4", "content4"), new Board("b5", "title5", "content5"));
 
 		boardView.setItems(boardList);
 
@@ -104,8 +104,8 @@ public class BoardController implements Initializable {
 			@Override
 			public void changed(ObservableValue<? extends Board> observable, Board oldValue, Board newValue) {
 				txtTitle.setText(newValue.getTitle());
-//				comboPublic.setValue(newValue.getPublicity());
-//				txtExitDate.setText(newValue.getExitDate());
+				comboPublic.setValue(newValue.getPublicity());
+				txtExitDate.setText(newValue.getExitDate());
 				txtContent.setText(newValue.getContent());
 			}
 		});
