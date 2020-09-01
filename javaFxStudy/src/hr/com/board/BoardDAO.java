@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import hr.com.DAO;
+import hr.common.DAO;
 
 public class BoardDAO {
 	private static final BoardDAO singleton = new BoardDAO();
