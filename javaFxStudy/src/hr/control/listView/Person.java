@@ -1,4 +1,4 @@
-package hr.control.listview;
+package hr.control.listView;
 
 public class Person {
 	// Declaring the attributes

@@ -54,11 +54,11 @@ public class ViewController implements Initializable {
 		phoneList.add(new Phone("갤럭시S7", "phone07.png"));
 
 		TableColumn<Phone, ?> tcSmartPhone = tableView.getColumns().get(0);
-		tcSmartPhone.setCellValueFactory(new PropertyValueFactory("smartPhone"));
+		tcSmartPhone.setCellValueFactory(new PropertyValueFactory<>("smartPhone"));
 		tcSmartPhone.setStyle("-fx-alignment: CENTER;");
 
 		TableColumn<Phone, ?> tcImage = tableView.getColumns().get(1);
-		tcImage.setCellValueFactory(new PropertyValueFactory("image"));
+		tcImage.setCellValueFactory(new PropertyValueFactory<>("image"));
 		tcImage.setStyle("-fx-alignment: CENTER;");
 
 		tableView.setItems(phoneList);
