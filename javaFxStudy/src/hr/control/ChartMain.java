@@ -11,7 +11,7 @@ public class ChartMain extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		String controlName = "SliderControl";
+		String controlName = "fxml/ChartControl";
 
 //		Parent root = FXMLLoader.load(getClass().getResource(controlName + ".fxml"));
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(controlName + ".fxml"));
