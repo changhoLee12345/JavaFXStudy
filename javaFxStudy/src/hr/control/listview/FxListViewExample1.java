@@ -1,4 +1,4 @@
-package hr.control.list;
+package hr.control.listview;
 
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;

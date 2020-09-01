@@ -1,4 +1,4 @@
-package hr.control.list;
+package hr.control.listview;
 
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
