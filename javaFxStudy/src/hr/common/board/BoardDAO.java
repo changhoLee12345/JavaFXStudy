@@ -3,6 +3,8 @@ package hr.common.board;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import hr.common.DAO;
 
@@ -18,7 +20,9 @@ public class BoardDAO {
 		return singleton;
 	}
 
-	public void insertBoard(Board board) {
+	public Map<String, String> insertBoard(Board board) {
+		Map<String, String> map = new HashMap<>();
+		int r = 0;
 		System.out.println(board.toString());
 		String sql = "insert into board (board_no, title, content, password, publicity, exit_date) "
 				+ "values((select nvl(max(board_no), 0)+1 from board), ?, ?, ?, ?, ?)";
@@ -31,7 +35,8 @@ public class BoardDAO {
 			pstmt.setString(4, board.getPublicity());
 			pstmt.setString(5, board.getExitDate());
 
-			int r = pstmt.executeUpdate();
+			r = pstmt.executeUpdate();
+
 			System.out.println(r + " inserted.");
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -42,5 +47,11 @@ public class BoardDAO {
 				e.printStackTrace();
 			}
 		}
+		if (r > 0)
+			map.put("status", "success");
+		else
+			map.put("status", "fail");
+
+		return map;
 	}
 }

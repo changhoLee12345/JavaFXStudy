@@ -3,12 +3,12 @@ package hr.control;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import hr.common.board.Board;
 import hr.common.board.BoardDAO;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -91,13 +91,17 @@ public class InputController implements Initializable {
 			System.out.println(board);
 
 			BoardDAO dao = BoardDAO.getInstance();
-			dao.insertBoard(board);
-
-			txtTitle.setText("");
-			txtPassword.setText("");
-			comboPublic.setValue("Public");
-			dateExit.setValue(null);
-			txtContent.setText(null);
+			Map<String, String> resultMap = dao.insertBoard(board);
+			if (resultMap.get("status").equals("success")) {
+				showCustomDialog("입력성공");
+				txtTitle.setText("");
+				txtPassword.setText("");
+				comboPublic.setValue("Public");
+				dateExit.setValue(null);
+				txtContent.setText(null);
+			} else if (resultMap.get("status").equals("fail")) {
+				showPopup("처리중 에러 발생");
+			}
 		}
 
 	}

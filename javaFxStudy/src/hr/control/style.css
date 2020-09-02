@@ -1,0 +1,12 @@
+Label {
+    -fx-padding: 3;
+    -fx-background-color: cyan;
+}
+
+.lblClass {
+	-fx-text-fill: green;
+}
+
+Button {
+	-fx-text-fill: red;
+}
