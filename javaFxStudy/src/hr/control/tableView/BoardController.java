@@ -37,6 +37,8 @@ public class BoardController implements Initializable {
 	@FXML
 	Button btnPrev, btnNext, btnAdd, btnClose;
 
+	String selectedTitle = null;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
@@ -56,21 +58,43 @@ public class BoardController implements Initializable {
 
 		btnClose.setOnAction((e) -> Platform.exit());
 
+		boardView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Board>() {
+
+			@Override
+			public void changed(ObservableValue<? extends Board> arg0, Board ov, Board nv) {
+				selectedTitle = nv.getTitle();
+
+			}
+
+		});
+
 		boardView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 			@Override
 			public void handle(MouseEvent me) {
 				if (me.getClickCount() == 2) {
-					boardView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Board>() {
+					try {
 
-						@Override
-						public void changed(ObservableValue<? extends Board> arg0, Board ov, Board nv) {
-							Board board = BoardDAO.getBoard(nv.getTitle());
-							
-							
-						}
+						selectedTitle = boardView.getSelectionModel().getSelectedItem().getTitle();
 
-					});
+						Stage stage = new Stage(StageStyle.DECORATED);
+						stage.initModality(Modality.WINDOW_MODAL);
+						stage.initOwner(btnAdd.getScene().getWindow());
+
+//						AnchorPane updateAp = FXMLLoader.load(getClass().getResource("BoardUpdate.fxml"));
+						FXMLLoader loader = new FXMLLoader(getClass().getResource("BoardUpdate.fxml"));
+						AnchorPane updateAp = loader.load();
+
+						BoardUpdateController controller = loader.getController();
+						controller.setTitle(selectedTitle);
+
+						Scene scene = new Scene(updateAp);
+						stage.setScene(scene);
+						stage.show();
+
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 				}
 			}
 
@@ -104,8 +128,6 @@ public class BoardController implements Initializable {
 		boardView.setItems(BoardDAO.getBoardList());
 
 	}
-	
-	
 
 	// 필드 필요한 것 받아오기.
 	AnchorPane ap = null;

@@ -29,11 +29,30 @@ public class BoardDAO {
 		return conn;
 	}
 
-	public static Board getBoard(String title) {
+	public static void updateBoard(Board board) {
 		conn = getConnect();
-		String sql = "select * from board where title = " + title + " where rownum = 1";
+		String sql = "update board set password = ? , publicity = ? , exit_date = ? , content = ? where title = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, board.getPassword());
+			pstmt.setString(2, board.getPublicity());
+			pstmt.setString(3, board.getExitDate());
+			pstmt.setString(4, board.getContent());
+			pstmt.setString(5, board.getTitle());
+			int r = pstmt.executeUpdate();
+			System.out.println(r + "건 변경됨.");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static Board getBoard(String title) {
+		conn = getConnect();
+		String sql = "select * from board where title = ? and rownum = 1";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, title);
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
 				Board board = new Board(rs.getString("title"), rs.getString("password"), rs.getString("publicity"),

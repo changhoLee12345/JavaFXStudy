@@ -6,7 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.FXCollections?>
 
-<AnchorPane prefHeight="380.0" prefWidth="485.0" style="-fx-background-color: yellow; " stylesheets="@../style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="380.0" prefWidth="485.0" style="-fx-background-color: yellow; " stylesheets="@../style.css" 
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.control.tableView.BoardUpdateController">
 	<children>
 		<Label layoutX="22.0" layoutY="27.0" style="-fx-background-color: yellow; -fx-text-fill: green;" text="Title" />
 		<Label layoutX="8.0" layoutY="60.0" styleClass="lblClass" text="Password" />
@@ -14,9 +15,9 @@
 		<Label layoutX="259.0" layoutY="95.0" styleClass="lblClass" text="Date" />
 		<Label layoutX="13.0" layoutY="129.0" styleClass="lblClass" text="content" />
 
-		<TextField id="txtTitle" layoutX="88.0" layoutY="25.0" prefHeight="25.0" prefWidth="349.0" promptText="input title.." />
-		<PasswordField id="txtPassword" layoutX="88.0" layoutY="58.0" prefHeight="25.0" prefWidth="349.0" promptText="input password.." />
-		<ComboBox id="comboPublic" layoutX="90.0" layoutY="94.0" prefWidth="150.0" promptText="Choose">
+		<TextField fx:id="txtTitle" layoutX="88.0" layoutY="25.0" prefHeight="25.0" prefWidth="349.0" promptText="input title.." />
+		<PasswordField fx:id="txtPassword" layoutX="88.0" layoutY="58.0" prefHeight="25.0" prefWidth="349.0" promptText="input password.." />
+		<ComboBox fx:id="comboPublic" layoutX="90.0" layoutY="94.0" prefWidth="150.0" promptText="Choose">
 			<items>
 				<FXCollections fx:factory="observableArrayList">
 					<String fx:value="Public" />
@@ -24,10 +25,10 @@
 				</FXCollections>
 			</items>
 		</ComboBox>
-		<DatePicker id="dateExit" layoutX="306.0" layoutY="93.0" prefHeight="25.0" prefWidth="135.0" promptText="2020/05/01" />
-		<TextArea id="txtContent" layoutX="22.0" layoutY="150.0" prefHeight="150.0" prefWidth="428.0" style="-fx-text-fill: blue;" />
+		<DatePicker fx:id="dateExit" layoutX="306.0" layoutY="93.0" prefHeight="25.0" prefWidth="135.0" promptText="2020/05/01" />
+		<TextArea fx:id="txtContent" layoutX="22.0" layoutY="150.0" prefHeight="150.0" prefWidth="428.0" style="-fx-text-fill: blue;" />
 		<Separator layoutX="22.0" layoutY="317.0" prefWidth="457.0" />
-		<Button id="btnCancel" layoutX="218.0" layoutY="332.0" style="-fx-background-color: green;" text="수정" />
+		<Button fx:id="btnUpdate" layoutX="218.0" layoutY="332.0" style="-fx-background-color: green;" text="수정" />
 
 	</children>
 </AnchorPane>
