@@ -66,15 +66,14 @@ public class BoardUpdateController implements Initializable {
 						dateExit.getValue().format(formatter), txtContent.getText());
 				BoardDAO.updateBoard(board);
 
-				AnchorPane ap;
-				try {
-					ap = FXMLLoader.load(getClass().getResource("BoardList.fxml"));
-					TableView boardView = (TableView) ap.lookup("#boardView");
-					boardView.setItems(BoardDAO.getBoardList());
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				Platform.runLater(new Runnable() {
 
+					@Override
+					public void run() {
+
+					}
+
+				});
 			}
 
 		});
