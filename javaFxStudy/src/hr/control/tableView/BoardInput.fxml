@@ -7,8 +7,7 @@
 <?import javafx.collections.FXCollections?>
 
 <AnchorPane prefHeight="380.0" prefWidth="485.0"
-	style="-fx-background-color: yellow; " stylesheets="@../style.css"
-	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	style="-fx-background-color: yellow; " stylesheets="@../style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
 	fx:controller="hr.control.InputController">
 	<children>
 		<Label layoutX="22.0" layoutY="27.0" style="-fx-background-color: yellow; -fx-text-fill: green;" text="Title" />

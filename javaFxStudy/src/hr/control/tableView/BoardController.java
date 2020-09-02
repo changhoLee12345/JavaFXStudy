@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,26 +60,47 @@ public class BoardController implements Initializable {
 		});
 
 		// 이벤트 처리.
+
 		btnAdd.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				try {
-					Stage stage = new Stage(StageStyle.DECORATED);
-					stage.initModality(Modality.WINDOW_MODAL);
-					stage.initOwner(btnAdd.getScene().getWindow());
-
-					AnchorPane ap = FXMLLoader.load(getClass().getResource("InputControl.fxml"));
-					Scene scene = new Scene(ap);
-					stage.setScene(scene);
-					stage.show();
-
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				handleBtnAddAction(event);
 			}
 		});
 
 		btnClose.setOnAction((e) -> Platform.exit());
+
+	}
+
+	// 필드 필요한 것 받아오기.
+	AnchorPane ap;
+
+	public void handleBtnAddAction(MouseEvent event) {
+		try {
+			Stage stage = new Stage(StageStyle.DECORATED);
+			stage.initModality(Modality.WINDOW_MODAL);
+			stage.initOwner(btnAdd.getScene().getWindow());
+
+			AnchorPane ap = FXMLLoader.load(getClass().getResource("InputControl.fxml"));
+			Scene scene = new Scene(ap);
+			stage.setScene(scene);
+			stage.show();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		// 입력화면 관련.
+		Button btnReg = (Button) ap.lookup("#btnReg");
+		btnReg.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+
+			}
+
+		});
+
 	}
 
 }
