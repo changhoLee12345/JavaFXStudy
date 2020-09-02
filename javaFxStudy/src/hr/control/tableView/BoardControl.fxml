@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.eventHandlers.BoardController">
+   <children>
+      <TableView fx:id="boardView" layoutX="25.0" layoutY="55.0" prefHeight="241.0" prefWidth="447.0">
+        <!-- <columns>
+          <TableColumn fx:id="tcBoardNo" prefWidth="75.0" text="boardNo" />
+          <TableColumn fx:id="tcTitle" prefWidth="75.0" text="title" />
+        </columns> -->
+      </TableView>
+      <Label layoutX="25.0" layoutY="30.0" text="리스트" />
+      <Button fx:id="btnPrev" layoutX="173.0" layoutY="307.0" mnemonicParsing="false" text="Prev" />
+      <Button fx:id="btnNext" layoutX="254.0" layoutY="307.0" mnemonicParsing="false" text="Next" />
+   </children>
+</AnchorPane>
