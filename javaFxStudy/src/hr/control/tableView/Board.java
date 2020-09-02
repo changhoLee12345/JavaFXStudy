@@ -3,7 +3,7 @@ package hr.control.tableView;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Board {
-	private SimpleStringProperty boardNo;
+//	private SimpleStringProperty boardNo;
 	private SimpleStringProperty title;
 	private SimpleStringProperty password;
 	private SimpleStringProperty publicity;
@@ -12,30 +12,30 @@ public class Board {
 
 	public Board(String boardNo, String title, String content) {
 		super();
-		this.boardNo = new SimpleStringProperty(boardNo);
+//		this.boardNo = new SimpleStringProperty(boardNo);
 		this.title = new SimpleStringProperty(title);
 		this.content = new SimpleStringProperty(content);
 	}
 
-	public Board(String boardNo, String title, String publicity, String exitDate, String content) {
-		this.boardNo = new SimpleStringProperty(boardNo);
+	public Board(String title, String password, String publicity, String exitDate, String content) {
 		this.title = new SimpleStringProperty(title);
+		this.password = new SimpleStringProperty(password);
 		this.publicity = new SimpleStringProperty(publicity);
 		this.exitDate = new SimpleStringProperty(exitDate);
 		this.content = new SimpleStringProperty(content);
 	}
 
-	public String getBoardNo() {
-		return this.boardNo.get();
-	}
-
-	public void setBoardNo(String boardNo) {
-		this.boardNo.set(boardNo);
-	}
-
-	public SimpleStringProperty boardNoProperty() {
-		return this.boardNo;
-	}
+//	public String getBoardNo() {
+//		return this.boardNo.get();
+//	}
+//
+//	public void setBoardNo(String boardNo) {
+//		this.boardNo.set(boardNo);
+//	}
+//
+//	public SimpleStringProperty boardNoProperty() {
+//		return this.boardNo;
+//	}
 
 	public String getTitle() {
 		return title.get();

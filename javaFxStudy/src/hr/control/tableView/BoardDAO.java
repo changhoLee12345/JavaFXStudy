@@ -29,6 +29,42 @@ public class BoardDAO {
 		return conn;
 	}
 
+	public static Board getBoard(String title) {
+		conn = getConnect();
+		String sql = "select * from board where title = " + title + " where rownum = 1";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				Board board = new Board(rs.getString("title"), rs.getString("password"), rs.getString("publicity"),
+						rs.getString("exit_date"), rs.getString("content"));
+				return board;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public static void insertBoard(Board board) {
+		conn = getConnect();
+		String sql = "insert into board values (?,?,?,?,?)";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, board.getTitle());
+			pstmt.setString(2, board.getPassword());
+			pstmt.setString(3, board.getPublicity());
+			pstmt.setString(4, board.getExitDate());
+			pstmt.setString(5, board.getContent());
+			int r = pstmt.executeUpdate();
+			System.out.println(r + "건 입력.");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static ObservableList<Board> getBoardList() {
 		conn = getConnect();
 
@@ -38,12 +74,12 @@ public class BoardDAO {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				System.out.println(rs.getString("board_no"));
+//				System.out.println(rs.getString("board_no"));
 				System.out.println(rs.getString("title"));
 				System.out.println(rs.getString("publicity"));
 				System.out.println(rs.getString("exit_date"));
 				System.out.println(rs.getString("content"));
-				Board board = new Board(rs.getString("board_no"), rs.getString("title"), rs.getString("publicity"),
+				Board board = new Board(rs.getString("title"), rs.getString("password"), rs.getString("publicity"),
 						rs.getString("exit_date"), rs.getString("content"));
 
 				list.add(board);
