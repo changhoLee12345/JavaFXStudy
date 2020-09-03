@@ -142,9 +142,8 @@ public class RootController implements Initializable {
 			dialog.setTitle("BarChart");
 
 			Parent parent = FXMLLoader.load(getClass().getResource("BarChart.fxml"));
-			BarChart<Axis<String>, Axis<Integer>> ch = new BarChart(new CategoryAxis(), new ValueAxis());
 
-			BarChart<Axis<String>, Axis<Integer>> barChart = (BarChart) parent.lookup("#barChart");
+			BarChart<String, Integer> barChart = (BarChart) parent.lookup("#barChart");
 
 			XYChart.Series<String, Integer> seriesKorean = new XYChart.Series<>();
 			seriesKorean.setName("Korean");
@@ -155,20 +154,20 @@ public class RootController implements Initializable {
 			seriesKorean.setData(koreanList);
 			barChart.getData().add(seriesKorean);
 
-			XYChart.Series seriesMath = new XYChart.Series();
+			XYChart.Series<String, Integer> seriesMath = new XYChart.Series<>();
 			seriesMath.setName("Math");
-			ObservableList mathList = FXCollections.observableArrayList();
+			ObservableList<XYChart.Data<String, Integer>> mathList = FXCollections.observableArrayList();
 			for (int i = 0; i < list.size(); i++) {
-				mathList.add(new XYChart.Data(list.get(i).getName(), list.get(i).getMath()));
+				mathList.add(new XYChart.Data<>(list.get(i).getName(), list.get(i).getMath()));
 			}
 			seriesMath.setData(mathList);
 			barChart.getData().add(seriesMath);
 
-			XYChart.Series seriesEnglish = new XYChart.Series();
+			XYChart.Series<String, Integer> seriesEnglish = new XYChart.Series<>();
 			seriesEnglish.setName("English");
-			ObservableList englishList = FXCollections.observableArrayList();
+			ObservableList<XYChart.Data<String, Integer>> englishList = FXCollections.observableArrayList();
 			for (int i = 0; i < list.size(); i++) {
-				englishList.add(new XYChart.Data(list.get(i).getName(), list.get(i).getEnglish()));
+				englishList.add(new XYChart.Data<>(list.get(i).getName(), list.get(i).getEnglish()));
 			}
 			seriesEnglish.setData(englishList);
 			barChart.getData().add(seriesEnglish);
