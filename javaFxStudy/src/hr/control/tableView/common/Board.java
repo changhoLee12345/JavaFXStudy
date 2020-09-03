@@ -1,4 +1,4 @@
-package hr.control.tableView;
+package hr.control.tableView.common;
 
 import javafx.beans.property.SimpleStringProperty;
 

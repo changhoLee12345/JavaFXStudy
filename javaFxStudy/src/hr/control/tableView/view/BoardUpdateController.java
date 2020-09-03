@@ -1,4 +1,4 @@
-package hr.control.tableView;
+package hr.control.tableView.view;
 
 import java.io.IOException;
 import java.net.URL;
@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+import hr.control.tableView.common.Board;
+import hr.control.tableView.common.BoardDAO;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -57,6 +59,7 @@ public class BoardUpdateController implements Initializable {
 			}
 
 		});
+
 		btnUpdate.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override

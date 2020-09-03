@@ -1,4 +1,4 @@
-package hr.control.tableView;
+package hr.control.tableView.common;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

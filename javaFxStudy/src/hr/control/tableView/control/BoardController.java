@@ -1,9 +1,12 @@
-package hr.control.tableView;
+package hr.control.tableView.control;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import hr.control.tableView.common.Board;
+import hr.control.tableView.common.BoardDAO;
+import hr.control.tableView.view.BoardUpdateController;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -46,7 +49,6 @@ public class BoardController implements Initializable {
 		loadData();
 
 		// 이벤트 처리.
-
 		btnAdd.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 			@Override
@@ -57,16 +59,6 @@ public class BoardController implements Initializable {
 		});
 
 		btnClose.setOnAction((e) -> Platform.exit());
-
-		boardView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Board>() {
-
-			@Override
-			public void changed(ObservableValue<? extends Board> arg0, Board ov, Board nv) {
-				selectedTitle = nv.getTitle();
-
-			}
-
-		});
 
 		boardView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
