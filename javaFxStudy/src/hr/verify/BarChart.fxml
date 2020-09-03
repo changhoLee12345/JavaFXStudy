@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
@@ -7,23 +11,27 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="250" prefWidth="400">
+<BorderPane prefHeight="332.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 	<center>
-		<BarChart id="barChart">
-			<xAxis>
-				<CategoryAxis side="BOTTOM" />
-			</xAxis>
-			<yAxis>
-				<NumberAxis side="LEFT" />
-			</yAxis>
-		</BarChart>
+		<HBox id="hbox">
+			<children>
+				<BarChart id="barChart" prefHeight="309.0" prefWidth="300.0">
+					<xAxis>
+						<CategoryAxis side="BOTTOM" />
+					</xAxis>
+					<yAxis>
+						<NumberAxis side="LEFT" />
+					</yAxis>
+				</BarChart>
+			</children>
+		</HBox>
 	</center>
 	<bottom>
-		<HBox alignment="CENTER" prefHeight="50">
+		<HBox alignment="CENTER" prefHeight="19.0" prefWidth="400.0">
 			<children>
-				<Button id="btnClose" text="Close" />
+				<Button id="btnClose" prefHeight="32.0" prefWidth="48.0"
+					text="Close" />
 			</children>
 		</HBox>
 	</bottom>
 </BorderPane>
-
