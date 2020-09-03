@@ -55,7 +55,7 @@ public class ChartController implements Initializable {
 
 	public ObservableList<XYChart.Data<String, Integer>> getSeries1() {
 		ObservableList<XYChart.Data<String, Integer>> series = FXCollections.observableArrayList();
-		series.add(new XYChart.Data<String, Integer>("2015", 70));
+		series.add(new XYChart.Data<>("2015", 70));
 		series.add(new XYChart.Data<String, Integer>("2016", 40));
 		series.add(new XYChart.Data<String, Integer>("2017", 50));
 		series.add(new XYChart.Data<String, Integer>("2018", 30));
