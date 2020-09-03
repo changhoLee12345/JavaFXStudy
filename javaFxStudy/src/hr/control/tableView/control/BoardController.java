@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 
 import hr.control.tableView.common.Board;
 import hr.control.tableView.common.BoardDAO;
-import hr.control.tableView.view.BoardUpdateController;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -36,11 +35,15 @@ import javafx.stage.StageStyle;
 
 public class BoardController implements Initializable {
 	@FXML
-	TableView<Board> boardView;
+	TableView<Board> boardView = null;
 	@FXML
-	Button btnPrev, btnNext, btnAdd, btnClose;
+	Button btnPrev, btnNext, btnAdd, btnClose, btnRefresh;
 
-	String selectedTitle = null;
+	Stage primaryStage;
+
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -48,9 +51,8 @@ public class BoardController implements Initializable {
 		columnFetch();
 		loadData();
 
-		// 이벤트 처리.
+		// 1) 이벤트 처리.
 		btnAdd.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
 			@Override
 			public void handle(MouseEvent event) {
 				handleBtnAddAction(event);
@@ -58,27 +60,31 @@ public class BoardController implements Initializable {
 
 		});
 
+		// 2) 이벤트 처리.
 		btnClose.setOnAction((e) -> Platform.exit());
 
-		boardView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		// 4) 새로고침.
+		btnRefresh.setOnAction(e -> loadData());
 
+		// 3) 이벤트 처리.
+		boardView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent me) {
 				if (me.getClickCount() == 2) {
 					try {
 
-						selectedTitle = boardView.getSelectionModel().getSelectedItem().getTitle();
+						String selectedTitle = boardView.getSelectionModel().getSelectedItem().getTitle();
 
 						Stage stage = new Stage(StageStyle.DECORATED);
 						stage.initModality(Modality.WINDOW_MODAL);
 						stage.initOwner(btnAdd.getScene().getWindow());
 
-//						AnchorPane updateAp = FXMLLoader.load(getClass().getResource("BoardUpdate.fxml"));
-						FXMLLoader loader = new FXMLLoader(getClass().getResource("BoardUpdate.fxml"));
+						FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/BoardUpdate.fxml"));
 						AnchorPane updateAp = loader.load();
 
 						BoardUpdateController controller = loader.getController();
 						controller.setTitle(selectedTitle);
+						controller.setPrimaryStage(primaryStage);
 
 						Scene scene = new Scene(updateAp);
 						stage.setScene(scene);
@@ -141,22 +147,23 @@ public class BoardController implements Initializable {
 		dateExit = (DatePicker) ap.lookup("#dateExit");
 		txtContent = (TextArea) ap.lookup("#txtContent");
 
-		txtTitle.setText("");
-		txtPassword.setText("");
+		txtTitle.clear();
+		txtPassword.clear();
 		comboPublic.setValue("");
 		dateExit.setValue(null);
-		txtContent.setText("");
+		txtContent.clear();
 
 		txtTitle.requestFocus();
 	}
 
+	// 등록화면 호출(BoardUpdate.fxml)관리.
 	public void handleBtnAddAction(MouseEvent event) {
 		try {
 			Stage stage = new Stage(StageStyle.DECORATED);
 			stage.initModality(Modality.WINDOW_MODAL);
 			stage.initOwner(btnAdd.getScene().getWindow());
 
-			ap = FXMLLoader.load(getClass().getResource("BoardInput.fxml"));
+			ap = FXMLLoader.load(getClass().getResource("../view/BoardInput.fxml"));
 			Scene scene = new Scene(ap);
 			stage.setScene(scene);
 			stage.show();
@@ -167,6 +174,7 @@ public class BoardController implements Initializable {
 
 		intializeControl();
 
+		// 1) 등록이벤트
 		btnReg.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -182,6 +190,7 @@ public class BoardController implements Initializable {
 
 		});
 
+		// 2) 취소이벤트
 		btnCancel.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -193,6 +202,7 @@ public class BoardController implements Initializable {
 
 	} // end of handleBtnAddAction()
 
+	// 메세지 보여주기.
 	public void showCustomDialog(String message) {
 
 		Stage dialogStage = new Stage(StageStyle.UTILITY);
@@ -205,7 +215,7 @@ public class BoardController implements Initializable {
 		ap.setPrefSize(400, 150);
 
 		ImageView imageView = new ImageView();
-		imageView.setImage(new Image(getClass().getResource("../../images/dialog-info.png").toString()));
+		imageView.setImage(new Image(getClass().getResource("../../../images/dialog-info.png").toString()));
 		imageView.setFitHeight(50);
 		imageView.setFitWidth(50);
 		imageView.setLayoutX(15);

@@ -1,5 +1,6 @@
-package hr.control.tableView;
+package hr.control.tableView.common;
 
+import hr.control.tableView.control.BoardController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,7 +11,13 @@ public class BoardMain extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Parent root = FXMLLoader.load(this.getClass().getResource("BoardList.fxml"));
+//		Parent root = FXMLLoader.load(this.getClass().getResource("../view/BoardList.fxml"));
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../view/BoardList.fxml"));
+		Parent root = loader.load();
+
+		BoardController controller = loader.getController();
+		controller.setPrimaryStage(primaryStage);
+
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.show();

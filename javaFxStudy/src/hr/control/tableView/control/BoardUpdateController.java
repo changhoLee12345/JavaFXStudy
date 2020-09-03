@@ -1,4 +1,4 @@
-package hr.control.tableView.view;
+package hr.control.tableView.control;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,14 +14,15 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class BoardUpdateController implements Initializable {
 	@FXML
@@ -36,6 +37,20 @@ public class BoardUpdateController implements Initializable {
 	TextArea txtContent;
 	@FXML
 	Button btnUpdate;
+
+	String selectedTitle = null;
+
+	public void setTitle(String str) {
+		selectedTitle = str;
+		System.out.println(str);
+
+	}
+
+	Stage primaryStage;
+
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -73,21 +88,23 @@ public class BoardUpdateController implements Initializable {
 
 					@Override
 					public void run() {
+						try {
 
+							AnchorPane ap = FXMLLoader.load(getClass().getResource("../view/BoardList.fxml"));
+							Scene scene = new Scene(ap);
+							primaryStage.setScene(scene);
+							primaryStage.show();
+
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 
 				});
 			}
 
 		});
-	}
-
-	String selectedTitle = null;
-
-	public void setTitle(String str) {
-		selectedTitle = str;
-		System.out.println(str);
-
 	}
 
 }

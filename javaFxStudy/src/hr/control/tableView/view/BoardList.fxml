@@ -5,14 +5,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="450.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.control.tableView.BoardController">
+<AnchorPane prefHeight="450.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="hr.control.tableView.control.BoardController">
 	<children>
-		<TableView fx:id="boardView" id="boardView" layoutX="25.0" layoutY="55.0" prefHeight="318.0" prefWidth="503.0">
+		<TableView id="boardView" fx:id="boardView" layoutX="25.0" layoutY="55.0" prefHeight="318.0" prefWidth="503.0">
 		</TableView>
 		<Label layoutX="25.0" layoutY="30.0" text="리스트" />
 		<Button fx:id="btnPrev" layoutX="167.0" layoutY="399.0" text="Prev" />
 		<Button fx:id="btnNext" layoutX="222.0" layoutY="399.0" text="Next" />
 		<Button fx:id="btnAdd" layoutX="294.0" layoutY="399.0" text="추가" />
-        <Button fx:id="btnClose" layoutX="341.0" layoutY="399.0" text="종료" />
+		<Button fx:id="btnClose" layoutX="341.0" layoutY="399.0" text="종료" />
+		<Button fx:id="btnRefresh" layoutX="51.0" layoutY="399.0" mnemonicParsing="false" text="새로고침" />
 	</children>
 </AnchorPane>
