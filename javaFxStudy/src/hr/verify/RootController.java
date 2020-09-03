@@ -13,7 +13,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.Axis;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.ValueAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -139,14 +142,15 @@ public class RootController implements Initializable {
 			dialog.setTitle("BarChart");
 
 			Parent parent = FXMLLoader.load(getClass().getResource("BarChart.fxml"));
+			BarChart<Axis<String>, Axis<Integer>> ch = new BarChart(new CategoryAxis(), new ValueAxis());
 
-			BarChart barChart = (BarChart) parent.lookup("#barChart");
+			BarChart<Axis<String>, Axis<Integer>> barChart = (BarChart) parent.lookup("#barChart");
 
-			XYChart.Series seriesKorean = new XYChart.Series();
+			XYChart.Series<String, Integer> seriesKorean = new XYChart.Series<>();
 			seriesKorean.setName("Korean");
-			ObservableList koreanList = FXCollections.observableArrayList();
+			ObservableList<XYChart.Data<String, Integer>> koreanList = FXCollections.observableArrayList();
 			for (int i = 0; i < list.size(); i++) {
-				koreanList.add(new XYChart.Data(list.get(i).getName(), list.get(i).getKorean()));
+				koreanList.add(new XYChart.Data<String, Integer>(list.get(i).getName(), list.get(i).getKorean()));
 			}
 			seriesKorean.setData(koreanList);
 			barChart.getData().add(seriesKorean);
