@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="hr.verify2.ChartController">
+   <center>
+      <Pane prefHeight="450.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+         <children>
+            <BarChart fx:id="barChart">
+              <xAxis>
+                <CategoryAxis fx:id="xAxis" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <Button fx:id="style1" layoutX="154.0" layoutY="400.0" text="스타일1" />
+            <Button fx:id="style2" layoutX="261.0" layoutY="400.0" text="스타일2" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
