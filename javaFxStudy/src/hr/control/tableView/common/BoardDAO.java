@@ -68,14 +68,15 @@ public class BoardDAO {
 
 	public static void insertBoard(Board board) {
 		conn = getConnect();
-		String sql = "insert into board values (?,?,?,?,?)";
+		System.out.println(board.getExitDate());
+		String sql = "insert into board values((select max(board_no) +1 from board), ?,?,?,?,?,null)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, board.getTitle());
-			pstmt.setString(2, board.getPassword());
-			pstmt.setString(3, board.getPublicity());
-			pstmt.setString(4, board.getExitDate());
-			pstmt.setString(5, board.getContent());
+			pstmt.setString(2, board.getContent());
+			pstmt.setString(3, board.getPassword());
+			pstmt.setString(4, board.getPublicity());
+			pstmt.setString(5, board.getExitDate());
 			int r = pstmt.executeUpdate();
 			System.out.println(r + "건 입력.");
 
@@ -94,10 +95,10 @@ public class BoardDAO {
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 //				System.out.println(rs.getString("board_no"));
-				System.out.println(rs.getString("title"));
-				System.out.println(rs.getString("publicity"));
-				System.out.println(rs.getString("exit_date"));
-				System.out.println(rs.getString("content"));
+//				System.out.println(rs.getString("title"));
+//				System.out.println(rs.getString("publicity"));
+//				System.out.println(rs.getString("exit_date"));
+//				System.out.println(rs.getString("content"));
 				Board board = new Board(rs.getString("title"), rs.getString("password"), rs.getString("publicity"),
 						rs.getString("exit_date"), rs.getString("content"));
 

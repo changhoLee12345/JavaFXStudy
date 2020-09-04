@@ -227,8 +227,6 @@ public class RootController implements Initializable {
 			for (int i = 0; i < list.size(); i++) {
 				koreanList.add(new XYChart.Data<String, Integer>(list.get(i).getName(), list.get(i).getKorean()));
 			}
-			seriesKorean.setData(koreanList);
-			barChart1.getData().add(seriesKorean);
 
 			XYChart.Series<String, Integer> seriesMath = new XYChart.Series<>();
 			seriesMath.setName("Math");
@@ -236,8 +234,6 @@ public class RootController implements Initializable {
 			for (int i = 0; i < list.size(); i++) {
 				mathList.add(new XYChart.Data<>(list.get(i).getName(), list.get(i).getMath()));
 			}
-			seriesMath.setData(mathList);
-			barChart1.getData().add(seriesMath);
 
 			XYChart.Series<String, Integer> seriesEnglish = new XYChart.Series<>();
 			seriesEnglish.setName("English");
@@ -245,6 +241,10 @@ public class RootController implements Initializable {
 			for (int i = 0; i < list.size(); i++) {
 				englishList.add(new XYChart.Data<>(list.get(i).getName(), list.get(i).getEnglish()));
 			}
+			seriesKorean.setData(koreanList);
+			barChart1.getData().add(seriesKorean);
+			seriesMath.setData(mathList);
+			barChart1.getData().add(seriesMath);
 			seriesEnglish.setData(englishList);
 			barChart1.getData().add(seriesEnglish);
 
