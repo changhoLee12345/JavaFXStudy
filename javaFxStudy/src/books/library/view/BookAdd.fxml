@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="350.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="books.library.BookAddController">
+	fx:controller="books.library.control.BookAddController">
    <children>
       <Label layoutX="53.0" layoutY="68.0" text="책제목" />
       <Label layoutX="56.0" layoutY="103.0" text="저자" />
