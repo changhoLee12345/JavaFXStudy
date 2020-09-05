@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
@@ -92,7 +93,7 @@ public class BookController implements Initializable {
 					@Override
 					public void handle(ActionEvent event) {
 						btnNewActionEvent();
-
+						loadData();
 						stage.close();
 					}
 
@@ -114,6 +115,7 @@ public class BookController implements Initializable {
 	// 컨트롤러 생성.
 	AnchorPane ap;
 	TextField txtBookTitle, txtAuthor, txtPress, txtPressDate, txtPrice, txtIsbn;
+	Label lblBookTitle, lblAuthor, lblPress, lblPressDate, lblPrice, lblIsbn;
 	Button btnNew, btnCancel;
 
 	// 추가화면 컨트롤러 초기화.
@@ -126,13 +128,36 @@ public class BookController implements Initializable {
 		txtIsbn = (TextField) ap.lookup("#txtIsbn");
 		btnNew = (Button) ap.lookup("#btnAdd");
 		btnCancel = (Button) ap.lookup("#btnCancel");
+		lblBookTitle = (Label) ap.lookup("#lblBookTitle");
+		lblAuthor = (Label) ap.lookup("#lblAuthor");
+		lblPress = (Label) ap.lookup("#lblPress");
+		lblPressDate = (Label) ap.lookup("#lblPressDate");
+		lblPrice = (Label) ap.lookup("#lblPrice");
+		lblIsbn = (Label) ap.lookup("#lblIsbn");
+
+		// layout setting.
+		Object[] txts = { txtBookTitle, txtAuthor, txtPress, txtPressDate, txtPrice, txtIsbn };
+		int xPos = 120, yPos = 64, yHeight = 35;
+		for (int i = 0; i < txts.length; i++) {
+			((TextField) txts[i]).setLayoutX(xPos);
+			((TextField) txts[i]).setLayoutY(yPos);
+			yPos += yHeight;
+		}
+		int aPos = 53, bPos = 68, bHeight = 35;
+		Object[] lbls = { lblBookTitle, lblAuthor, lblPress, lblPressDate, lblPrice, lblIsbn };
+		for (int i = 0; i < lbls.length; i++) {
+			((Label) lbls[i]).setLayoutX(aPos);
+			((Label) lbls[i]).setLayoutY(bPos);
+			bPos += bHeight;
+		}
+
 	}
 
 	public void btnNewActionEvent() {
 		System.out.println(txtBookTitle.getText());
 		Book book = new Book(txtBookTitle.getText(), txtAuthor.getText(), txtPress.getText(), txtPressDate.getText(),
 				Integer.parseInt(txtPrice.getText()), txtIsbn.getText());
-//		BookDAO.insertBook(book);
+		BookDAO.insertBook(book);
 
 	}
 
@@ -149,6 +174,7 @@ public class BookController implements Initializable {
 			}
 
 		});
+		col1.setPrefWidth(110);
 		TableColumn<Book, String> col2 = new TableColumn<>("저자");
 		col2.setCellValueFactory(new Callback<CellDataFeatures<Book, String>, ObservableValue<String>>() {
 			@Override
@@ -157,6 +183,7 @@ public class BookController implements Initializable {
 			}
 
 		});
+		col2.setPrefWidth(60);
 		TableColumn<Book, String> col3 = new TableColumn<>("출판사");
 		col3.setCellValueFactory(new Callback<CellDataFeatures<Book, String>, ObservableValue<String>>() {
 			@Override
@@ -165,6 +192,7 @@ public class BookController implements Initializable {
 			}
 
 		});
+		col3.setPrefWidth(90);
 		TableColumn<Book, String> col4 = new TableColumn<>("출판일자");
 		col4.setCellValueFactory(new Callback<CellDataFeatures<Book, String>, ObservableValue<String>>() {
 			@Override
@@ -173,6 +201,7 @@ public class BookController implements Initializable {
 			}
 
 		});
+		col4.setPrefWidth(88);
 
 		tableView.getColumns().addAll(col1, col2, col3, col4);
 

@@ -15,6 +15,7 @@ public class BookDAO {
 	static Connection conn;
 
 	public static void insertBook(Book book) {
+		conn = ConnectDB.getConnect();
 		String sql = "insert into book(book_title,author,press,press_date,price,isbn) values(?,?,?,?,?,?) ";
 		try {
 			pstmt = conn.prepareStatement(sql);
