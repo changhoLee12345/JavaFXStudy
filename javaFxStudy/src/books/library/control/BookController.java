@@ -19,6 +19,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -63,6 +64,16 @@ public class BookController implements Initializable {
 			}
 		});
 
+		tableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				if (event.getClickCount() == 2) {
+					handleMouseClickAction(event);
+				}
+			}
+
+		});
+
 		// 칼럼 지정.
 		fetchColumn();
 
@@ -71,6 +82,12 @@ public class BookController implements Initializable {
 
 	}
 
+	public void handleMouseClickAction(MouseEvent me) {
+		Book book = tableView.getSelectionModel().getSelectedItem();
+		
+	}
+
+	// 버튼 컨트롤 (추가, prev, next)
 	public void handleButtonAction(ActionEvent ae) {
 		Button btn = (Button) ae.getTarget();
 		System.out.println(btn.getId());
