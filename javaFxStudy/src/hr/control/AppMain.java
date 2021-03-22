@@ -6,15 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MediaMain extends Application {
+public class AppMain extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		String controlName = "SliderControl";
-
-//		Parent root = FXMLLoader.load(getClass().getResource(controlName + ".fxml"));
-		FXMLLoader loader = new FXMLLoader(getClass().getResource(controlName + ".fxml"));
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fxml/ButtonControl.fxml"));
 		Parent root = loader.load();
 
 //		InputController controller = loader.getController();
@@ -24,7 +21,7 @@ public class MediaMain extends Application {
 
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		primaryStage.setTitle(controlName);
+		primaryStage.setTitle("ButtonControl");
 
 	}
 
