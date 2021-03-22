@@ -6,20 +6,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="250.0" prefWidth="210.0"
-	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="250.0" prefWidth="210.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
 	<children>
-		<Label alignment="CENTER" contentDisplay="CENTER" layoutX="38.0"
-			layoutY="41.0" prefHeight="15.0" prefWidth="122.0"
-			style="-fx-text-fill: green; -fx-font-weight: bold; -fx-font-size: 15;"
-			text="이름" textAlignment="CENTER" />
+		<Label alignment="CENTER" contentDisplay="CENTER" layoutX="38.0" layoutY="41.0" prefHeight="15.0" prefWidth="122.0"
+			style="-fx-text-fill: green; -fx-font-weight: bold; -fx-font-size: 15;" text="이름" textAlignment="CENTER" />
 		<Label layoutX="35.0" layoutY="73.0" text="국어" />
 		<Label layoutX="35.0" layoutY="132.0" text="영어" />
 		<Label layoutX="35.0" layoutY="99.0" text="수학" />
 		<TextField layoutX="72.0" layoutY="69.0" prefWidth="110.0" />
 		<TextField layoutX="72.0" layoutY="95.0" prefWidth="110.0" />
 		<TextField layoutX="72.0" layoutY="128.0" prefWidth="110.0" />
-		<Button layoutX="84.0" layoutY="184.0" mnemonicParsing="false"
-			text="수정" />
+		<Button layoutX="84.0" layoutY="184.0" mnemonicParsing="false" text="수정" />
 	</children>
 </AnchorPane>

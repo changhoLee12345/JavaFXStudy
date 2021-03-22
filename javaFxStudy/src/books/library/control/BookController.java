@@ -154,13 +154,13 @@ public class BookController implements Initializable {
 
 		// layout setting.
 		Object[] txts = { txtBookTitle, txtAuthor, txtPress, txtPressDate, txtPrice, txtIsbn };
-		int xPos = 120, yPos = 64, yHeight = 35;
+		int xPos = 90, yPos = 64, yHeight = 35;
 		for (int i = 0; i < txts.length; i++) {
 			((TextField) txts[i]).setLayoutX(xPos);
 			((TextField) txts[i]).setLayoutY(yPos);
 			yPos += yHeight;
 		}
-		int aPos = 53, bPos = 68, bHeight = 35;
+		int aPos = 23, bPos = 68, bHeight = 35;
 		Object[] lbls = { lblBookTitle, lblAuthor, lblPress, lblPressDate, lblPrice, lblIsbn };
 		for (int i = 0; i < lbls.length; i++) {
 			((Label) lbls[i]).setLayoutX(aPos);
