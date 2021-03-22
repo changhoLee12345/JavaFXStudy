@@ -1,16 +1,71 @@
 SELECT *
 FROM   tab;
 
+SELECT e.employee_id eid
+      ,p.employee_id pid
+      ,p.emp_id
+FROM   employees e
+      ,emp       p
+WHERE  e.employee_id = p.emp_id(+)
+ORDER  BY e.employee_id;
+
+SELECT e.employee_id eid
+      ,p.employee_id pid
+      ,p.emp_id
+FROM   employees e
+LEFT   OUTER JOIN emp p
+ON     e.employee_id = p.emp_id
+ORDER  BY e.employee_id;
+
+DELETE FROM emp
+WHERE  employee_id > 200;
+
+ALTER TABLE emp add emp_id NUMBER;
+UPDATE emp
+SET    emp_id = employee_id;
+
+INSERT INTO emp
+    SELECT e.*
+          ,101
+    FROM   employees e
+    WHERE  employee_id > 200;
+
+CREATE TABLE emp_temp AS
+    SELECT *
+    FROM   employees;
+
+SELECT *
+FROM   emp
+ORDER  BY 1;
+
+SELECT *
+FROM   schedule;
+
+DELETE FROM schedule
+WHERE  title = title;
+
+INSERT INTO schedule
+VALUES
+    ('title'
+    ,'appointIme'
+    ,'mmeplace'
+    ,'test....');
+drop TABLE schedule purge;
+CREATE TABLE schedule(title VARCHAR2(100)
+                     ,appoint_time VARCHAR2(100)
+                     ,meeting_place VARCHAR2(100)
+                     ,content VARCHAR2(500));
+
 SELECT *
 FROM   book;
 
-drop table book purge;
+drop TABLE book purge;
 CREATE TABLE book(book_no NUMBER
-                  ,book_name VARCHAR2(100)
-                  ,book_author VARCHAR2(100)
-                  ,book_cont VARCHAR2(1000)
-                  ,book_price NUMBER
-                  ,book_rating NUMBER);
+                 ,book_name VARCHAR2(100)
+                 ,book_author VARCHAR2(100)
+                 ,book_cont VARCHAR2(1000)
+                 ,book_price NUMBER
+                 ,book_rating NUMBER);
 SELECT *
 FROM   book;
 
@@ -57,4 +112,5 @@ CREATE TABLE product(item_no VARCHAR2(20) primary key
                     ,image VARCHAR2(100));
 
 SELECT *
-FROM   product;
+FROM   product
+FOR    UPDATE;

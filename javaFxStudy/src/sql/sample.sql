@@ -1,7 +1,22 @@
-select 
 
 SELECT *
 FROM   tab;
+
+CREATE TABLE data_table(title VARCHAR2(100)
+                       ,group_id NUMBER
+                       ,start_date VARCHAR2(20)
+                       ,end_date VARCHAR2(20));
+
+CREATE TABLE emp AS
+    SELECT *
+    FROM   employees;
+
+SELECT d.department_name
+      ,COUNT(*) AS cnt
+FROM   employees   e
+      ,departments d
+WHERE  e.department_id = d.department_id
+GROUP  BY d.department_name;
 
 CREATE TABLE admins(email VARCHAR2(30)
                    ,password VARCHAR2(30));
@@ -21,7 +36,8 @@ CREATE TABLE users(id VARCHAR2(10)
 
 CREATE sequence user_seq;
 
-SELECT user_seq.nextval FROM dual;
+SELECT user_seq.nextval
+FROM   dual;
 
 INSERT INTO users
 VALUES
@@ -55,6 +71,5 @@ WHERE  id IS NULL;
 SELECT *
 FROM   users;
 
-delete from users
-where id like 'user%';
-
+DELETE FROM users
+WHERE  id LIKE 'user%';
