@@ -254,7 +254,7 @@ public class RootController implements Initializable {
 			// BarChart 사람이름 기준으로 시리즈 추가.
 			HBox hbox = (HBox) parent.lookup("#hbox");
 
-			BarChart<String, Number> barchart2 = new BarChart(new CategoryAxis(), new NumberAxis());
+			BarChart<String, Number> barchart2 = new BarChart<String, Number>(new CategoryAxis(), new NumberAxis());
 			barchart2.setPrefSize(300, 309);
 
 			for (int i = 0; i < list.size(); i++) {

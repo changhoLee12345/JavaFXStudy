@@ -42,6 +42,7 @@ public class PhoneController implements Initializable {
 		for (int i = 1; i <= 7; i++) {
 			list1.add("GalaxyS" + i);
 		}
+		listView.setItems(FXCollections.observableArrayList());
 		listView.setItems(list1);
 
 		ObservableList<Phone> list2 = FXCollections.observableArrayList(//
@@ -66,7 +67,6 @@ public class PhoneController implements Initializable {
 //			}
 //		});
 		col1.setCellValueFactory(new PropertyValueFactory<Phone, String>("smartPhone"));
-
 		TableColumn<Phone, String> col2 = new TableColumn<Phone, String>("image");
 //		col2.setCellValueFactory(new Callback<CellDataFeatures<Phone, String>, ObservableValue<String>>() {
 //			@Override
