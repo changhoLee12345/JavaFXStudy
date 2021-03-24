@@ -13,18 +13,16 @@ public class AnchorPaneExample extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		AnchorPane root = new AnchorPane();
-		root.setPrefWidth(300);
+		root.setPrefWidth(330);
 		root.setPrefHeight(150);
 
-		Label lblId = new Label();
+		Label lblId = new Label("아이디");
 		lblId.setLayoutX(42);
 		lblId.setLayoutY(28);
-		lblId.setText("아이디");
 
-		Label lblPasswd = new Label();
+		Label lblPasswd = new Label("비밀번호");
 		lblPasswd.setLayoutX(42);
 		lblPasswd.setLayoutY(66);
-		lblPasswd.setText("패스워드");
 
 		TextField tfId = new TextField();
 		tfId.setLayoutX(120);
@@ -43,14 +41,14 @@ public class AnchorPaneExample extends Application {
 		btnCancel.setLayoutX(164);
 
 		root.getChildren().addAll(lblId, lblPasswd, tfId, pfPasswd, btnOk, btnCancel);
-		
+
 		Scene scene = new Scene(root);
-		
+
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		primaryStage.setTitle("AnchorPane Example");
 		primaryStage.setResizable(false);
-		
+
 	}
 
 	public static void main(String[] args) {
