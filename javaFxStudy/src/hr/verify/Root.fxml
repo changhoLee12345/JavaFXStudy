@@ -18,10 +18,11 @@
 		</TableView>
 	</center>
 	<bottom>
-		<HBox prefHeight="50" alignment="CENTER">
+		<HBox prefHeight="50" alignment="CENTER" spacing="10">
 			<children>
 				<Button fx:id="btnAdd" text="Add" />
 				<Button fx:id="btnBarChart" text="BarChart" />
+				<Button text="Exit" onAction="#btnExitHandler" />
 			</children>
 		</HBox>
 	</bottom>

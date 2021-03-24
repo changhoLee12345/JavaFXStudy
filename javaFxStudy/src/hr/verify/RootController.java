@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -39,6 +40,8 @@ public class RootController implements Initializable {
 	TableView<Student> tableView;
 	@FXML
 	Button btnBarChart;
+	@FXML
+	HBox hbox;
 
 	private Stage primaryStage;
 
@@ -87,15 +90,23 @@ public class RootController implements Initializable {
 		});
 	}
 
+	public void btnExitHandler(ActionEvent e) {
+		Platform.exit();
+	}
+
 	TextField tName = new TextField();
 	TextField tKorean = new TextField();
 	TextField tMath = new TextField();
 	TextField tEnglish = new TextField();
 	Button btnChange = new Button("수정");
 
-	public void handleDoubleClickAction(String user) {
+	Stage stage = null;
 
-		Stage stage = new Stage(StageStyle.UTILITY);
+	public void handleDoubleClickAction(String user) {
+		if (stage != null) {
+			stage.close();
+		}
+		stage = new Stage(StageStyle.UTILITY);
 		stage.initModality(Modality.WINDOW_MODAL);
 		stage.initOwner(primaryStage);
 
@@ -170,11 +181,18 @@ public class RootController implements Initializable {
 			System.out.println(student.getName() + "," + student.getKorean() + "," + student.getMath() + ","
 					+ student.getEnglish());
 		}
+		
+		stage.close();
 	}
+
+	Stage dialog = null;
 
 	private void handleBtnAddAction(ActionEvent event) {
 		try {
-			Stage dialog = new Stage(StageStyle.UTILITY);
+			if (dialog != null) {
+				dialog.close();
+			}
+			dialog = new Stage(StageStyle.UTILITY);
 			dialog.initModality(Modality.WINDOW_MODAL);
 			dialog.initOwner(primaryStage);
 			dialog.setTitle("Add");
