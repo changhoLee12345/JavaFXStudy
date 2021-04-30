@@ -2,6 +2,15 @@
 SELECT *
 FROM   tab;
 
+SELECT *
+FROM   fileboard;
+
+CREATE TABLE fileboard(num NUMBER
+                      ,author VARCHAR2(100)
+                      ,title VARCHAR2(300)
+                      ,filename VARCHAR2(300)
+                      ,DAY VARCHAR2(20));
+
 CREATE TABLE data_table(title VARCHAR2(100)
                        ,group_id NUMBER
                        ,start_date VARCHAR2(20)
