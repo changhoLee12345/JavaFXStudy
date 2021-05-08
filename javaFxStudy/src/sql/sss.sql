@@ -1,6 +1,32 @@
 SELECT *
 FROM   tab;
 
+SELECT *
+FROM   user_temp;
+
+DELETE FROM user_temp
+WHERE  user_id is null;
+
+CREATE TABLE user_temp(user_id VARCHAR2(100)
+                      ,user_name VARCHAR2(200)
+                      ,user_pass VARCHAR2(100)
+                      ,user_phone VARCHAR2(20)
+                      ,user_gender VARCHAR2(10));
+
+INSERT INTO user_temp
+VALUES
+    ('user2'
+    ,'user_name2'
+    ,'12342'
+    ,'user_phone2'
+    ,'¿©¼º¼º');
+
+SELECT *
+FROM   fileboard
+ORDER  BY 1;
+
+DELETE FROM fileboard;
+
 SELECT e.employee_id eid
       ,p.employee_id pid
       ,p.emp_id
